@@ -12,8 +12,8 @@ Each prompt is **tool-agnostic** — use them with Cursor, Copilot, Claude, Chat
 
 | Prompt | Category | Description |
 |--------|----------|-------------|
-| [`create_handoff.md`](./prompts/create_handoff.md) | Session Management | Generate a structured handoff document before ending a session |
-| [`resume_handoff.md`](./prompts/resume_handoff.md) | Session Management | Resume work from a handoff document in a fresh session |
+| [`create_handoff.md`](./Prompts/Handoff/create_handoff.md) | Session Management | Generate a structured handoff document before ending a session |
+| [`resume_handoff.md`](./Prompts/Handoff/resume_handoff.md) | Session Management | Resume work from a handoff document in a fresh session |
 
 > More prompts coming soon. Contributions welcome!
 
