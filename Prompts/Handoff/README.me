@@ -1,0 +1,43 @@
+# 🤝 Handoff Protocol
+
+Two prompts that turn AI session transitions from a liability into a feature.
+
+## Prompts
+
+| Prompt | When to use |
+|--------|-------------|
+| [`create_handoff.md`](./create_handoff.md) | When a session is losing sharpness, reaching its context limit, or a logical milestone is complete |
+| [`resume_handoff.md`](./resume_handoff.md) | When starting a fresh session that should continue where the previous one left off |
+
+## How It Works
+
+```
+Session A (context saturating)          Session B (fresh context)
+┌─────────────────────────┐             ┌─────────────────────────┐
+│                         │  handoff.md │                         │
+│  create_handoff ──────────────────────── resume_handoff         │
+│                         │             │                         │
+└─────────────────────────┘             └─────────────────────────┘
+```
+
+1. **Create** — Tell the AI to generate a handoff document. It captures tasks, learnings, changes, artifacts, and next steps in a structured `.md` file.
+2. **Resume** — Open a fresh session and point it at the handoff file. The AI reads everything, verifies the current state, and proposes a plan before continuing.
+
+## The Handoff Document
+
+The `create_handoff` prompt produces a markdown file with these sections:
+
+| Section | Purpose |
+|---------|---------|
+| **Tasks** | What's done, in progress, and planned |
+| **Critical References** | Key specs or design docs to follow |
+| **Recent Changes** | Exact files and lines modified |
+| **Learnings** | Patterns, root causes, pitfalls to avoid |
+| **Artifacts** | Documents produced or updated |
+| **Action Items & Next Steps** | Clear plan for the next session |
+
+## Tips
+
+- **Don't autopilot** — Always read the handoff yourself and adjust direction if needed.
+- **Handoff at milestones**, not just when the AI degrades. A clean handoff after a completed feature is more useful than an emergency one mid-debugging.
+- **Keep handoffs in version control** — They become a decision log you can reference weeks later.
